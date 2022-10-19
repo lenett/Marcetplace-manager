@@ -1,0 +1,72 @@
+﻿@using Microsoft.AspNetCore.Authorization
+@inject IAuthorizationService AuthorizationService
+
+<li>
+    <a href="/#" class="nav-link nav-link text-white">
+        <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
+        Главная
+    </a>
+</li>
+
+
+
+@if (User.Identity.IsAuthenticated)
+{
+    <li>
+        <a href="/Identity/Account/Logout" class="nav-link nav-link text-white">
+            <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
+            Выйти
+        </a>
+    </li>
+
+    <li>
+        <a href="/Goods/Products/Index" class="nav-link nav-link text-white">
+            <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
+            Товарная полка
+        </a>
+    </li>
+
+    <li>
+        <a href="/Identity/Profile/Index" class="nav-link nav-link text-white">
+            <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
+            Профиль
+        </a>
+    </li>
+}
+else
+{
+    <li>
+        <a href="/Identity/Account/Register" class="nav-link nav-link text-white">
+            <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
+            Регистрация
+        </a>
+    </li>
+
+    <li>
+        <a href="/Identity/Account/Login" class="nav-link nav-link text-white">
+            <svg class="bi me-2" width="16" height="16"><use xlink:href="#table"></use></svg>
+            Войти
+        </a>
+    </li>
+}
+
+
+
+@if ((await AuthorizationService.AuthorizeAsync(User, "Administrator")).Succeeded)
+
+{
+    <li>
+        <button class="collapsible nav-link">
+            <svg class="bi me-2" width="16" height="16"><use xlink:href="#speedometer2"></use></svg>
+            Администрирование
+        </button>
+        <div class="content nav-link">
+            <a href="/identity/users/index" class="nav-link text-white">
+                <svg class="bi me-2" width="16" height="16"> <use xlink:href="#table"> </use> </svg>
+                Пользователи
+            </a>
+        </div>
+    </li>
+}
+
+

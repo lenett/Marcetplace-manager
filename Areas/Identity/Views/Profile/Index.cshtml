@@ -1,0 +1,32 @@
+﻿@model MM.Areas.Identity.ViewModels.ProfileViewModel;
+
+<div class="text-center">
+    <h1 class="display-4">Профиль</h1>
+</div>
+
+@if (User.Identity.IsAuthenticated)
+{
+    <div class="card-body">
+        <p class="card-text">@Model.Email</p>
+    </div>
+    <div>
+        @Html.ActionLink("Добавить организацию","CreateCompany","Profile")
+    </div>
+    
+    @foreach (var user in Model.Companies)
+    {
+        <tr>
+            <td>@user.Name</td>
+            <td>@user.INN</td>
+            <td>
+                <form asp-action="Delete" asp-route-id="@user.Id" method="post">
+                    <a class="btn btn-sm btn-primary" asp-action="Edit" asp-route-id="@user.Id">Изменить</a>
+                    <button type="submit" class="btn btn-sm btn-danger">
+                        Удалить
+                    </button>
+                </form>
+            </td>
+        </tr>
+    }
+
+}

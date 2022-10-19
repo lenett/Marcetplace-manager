@@ -1,0 +1,31 @@
+﻿@model MM.Areas.Goods.ViewModels.ProductsModel
+@{
+    ViewBag.Title = "Добавление книги";
+}
+
+<form asp-action="create" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <p class="form-group">
+            @Html.LabelFor(m=>m.Name)
+            <br />
+            @Html.Editor("Name")
+        </p>
+        <br />
+        <p class="form-group">
+            @Html.LabelFor(m=>m.Picture)
+            <input class="form-control" type="file" id="Picture" name="Picture">
+        </p>
+        <p class="form-group">
+            @Html.LabelFor(m=>m.Description, new {@for="Description"})
+            @Html.TextAreaFor(m => m.Description, new {@class="form-control", placeholder="Описание книги"})
+        </p>
+        <p class="form-group">
+            @Html.LabelFor(m=>m.Text)
+            @Html.TextAreaFor(m => m.Text, new {@class="form-control", @placeholder="Текст книги"})
+        </p>
+        <button class="btn btn-primary" type="submit">Сохранить</button>
+    </div>
+
+</form>
+
+

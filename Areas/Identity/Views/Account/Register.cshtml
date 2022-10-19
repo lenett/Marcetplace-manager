@@ -1,0 +1,37 @@
+﻿@model MM.Areas.Identity.ViewModels.RegisterViewModel
+
+<h2>Регистрация нового пользователя</h2>
+<form method="post" asp-area="Identity" asp-controller="Account" asp-action="Register">
+    @Html.ValidationSummary()
+    <div>
+        <div>
+            @Html.LabelFor(m => m.Email)
+        </div>
+        <input class="form-control" type="email" id="Email" name="Email" />
+        <span asp-validation-for="Email"></span>
+    </div>
+    <div>
+        <div>
+            @Html.LabelFor(m => m.UserName)
+        </div>
+        <input class="form-control" type="text" id="UserName" name="UserName" />
+        <span asp-validation-for="UserName"></span>
+    </div>
+    <div>
+        <div>
+            @Html.LabelFor(m => m.Password)
+        </div>
+        <input class="form-control" type="password" id="Password" name="Password" />
+        <span asp-validation-for="Password"></span>
+    </div>
+    <div>
+        <div>
+            @Html.LabelFor(m => m.PasswordConfirm)
+        </div>
+        <input class="form-control" type="password" id="PasswordConfirm" name="PasswordConfirm" />
+        <span asp-validation-for="PasswordConfirm"></span>
+    </div>
+    <div>
+        <input type="submit" value="Регистрация" />
+    </div>
+</form>

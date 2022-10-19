@@ -1,0 +1,57 @@
+﻿@model MM.Areas.Identity.ViewModels.LoginViewModel
+
+<div class="dropdown">
+    <a href="#" class="d-flex align-items-center text-white text-decoration-none dropdown-toggle" data-toggle="dropdown" id="dropdownUser1" data-bs-toggle="dropdown" aria-expanded="false">
+        <img src="https://github.com/mdo.png" alt="" class="rounded-circle me-2" width="32" height="32">
+        @if (User.Identity.IsAuthenticated)
+        {
+            <strong>@User.Identity.Name</strong>
+        }
+        else
+        {
+            <strong>Войти</strong>
+        }
+    </a>
+
+    @if (User.Identity.IsAuthenticated)
+    {
+        <form>
+            <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1">
+                <li><a class="dropdown-item" href="#">New project...</a></li>
+                <li><a class="dropdown-item" href="#">Settings</a></li>
+                <li><a class="dropdown-item" href="#">Profile</a></li>
+                <li><hr class="dropdown-divider"></li>
+                <li><button class="dropdown-item" asp-controller="Account" asp-action="Logout" asp-area="Identity" formmethod="post">Выйти</button></li>
+            </ul>
+        </form>
+    }
+    else
+    {
+        <form>
+            <ul class="dropdown-menu dropdown-menu-dark text-small shadow" aria-labelledby="dropdownUser1" asp-validation-summary="ModelOnly">
+                <li>
+                    @Html.LabelFor(m => m.UserName)
+                    <input class="form-control" type="text" id="UserName" name="UserName" style="height: 25px;" />
+                    <span asp-validation-for="UserName"></span>
+                </li>
+                <li>
+                    @Html.LabelFor(m => m.Password)
+                    <input class="form-control" type="password" id="Password" name="Password" style="height: 25px;" />
+                    <span asp-validation-for="Password"></span>
+                </li>
+                <li>
+                    @Html.LabelFor(m => m.RememberMe)
+                    <input type="checkbox" asp-for="RememberMe" />
+                </li>
+                <li>
+                    <button class="dropdown-item" asp-controller="Account" asp-action="Login" asp-area="Identity" formmethod="post">Войти</button>
+                </li>
+                <li>
+                    <button class="dropdown-item" asp-controller="Account" asp-action="Register" asp-area="Identity" formmethod="post">Регистрация</button>
+                </li>
+            </ul>
+        </form>
+    }
+
+
+</div>

@@ -1,0 +1,27 @@
+﻿@using MM.Areas.Identity.Models
+@model MM.Areas.Identity.Models.Companies
+@{
+    ViewBag.Title = "Добавление организации";
+}
+
+<div class="text-center">
+    <h1 class="display-4">Добавить организацию</h1>
+</div>
+
+<form asp-action="create" method="post" enctype="multipart/form-data">
+    <div class="form-group">
+        <p class="form-group">
+            @Html.LabelFor(m=>m.Name)
+            <br />
+            @Html.EditorFor(m=>m.Name)
+        </p>
+        <br />
+        <p class="form-group">
+            @Html.LabelFor(m=>m.INN)
+            <br />
+            @Html.EditorFor(m=>m.INN)
+        </p>
+        <button class="btn btn-primary" type="submit">Сохранить</button>
+    </div>
+
+</form>

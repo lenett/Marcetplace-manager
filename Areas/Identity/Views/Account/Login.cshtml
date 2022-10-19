@@ -1,0 +1,42 @@
+﻿@model MM.Areas.Identity.ViewModels.LoginViewModel
+
+@if (User.Identity.IsAuthenticated)
+{
+    <p>@User.Identity.Name</p>
+
+    <form method="post" asp-area="Identity" asp-controller="Account" asp-action="Login">
+        <input type="submit" value="Выход" />
+    </form>
+}
+else
+{
+
+    <h2>Вход в приложение</h2>
+
+
+    <form method="post" asp-area="Identity" asp-controller="Account" asp-action="Login"
+          asp-route-returnUrl="@Model.ReturnUrl">
+        <div asp-validation-summary="ModelOnly"></div>
+        <div>
+            <div>
+                @Html.LabelFor(m => m.UserName)
+            </div>
+            <input class="form-control" type="text" id="UserName" name="UserName" />
+            <span asp-validation-for="UserName"></span>
+        </div>
+        <div>
+            <div>
+                @Html.LabelFor(m => m.Password)
+            </div>
+            <input class="form-control" type="password" id="Password" name="Password" />
+            <span asp-validation-for="Password"></span>
+        </div>
+        <div>
+            <label asp-for="RememberMe"></label><br />
+            <input asp-for="RememberMe" />
+        </div>
+        <div>
+            <input type="submit" value="Войти" />
+        </div>
+    </form>
+}

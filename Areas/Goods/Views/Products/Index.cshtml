@@ -1,0 +1,43 @@
+﻿@model IEnumerable<MM.Areas.Goods.Models.Products>
+
+@{
+    ViewBag.Title = "Все книги";
+}
+
+<div class="articleGrid">
+    @foreach (var item in Model)
+    {
+        <div class="cell">
+
+            <div class="card">
+               @* @if (item.Picture != null)
+                {
+                    <a href='@Url.Action("Delete", "Books",new{id=item.Id})'>
+                        <img class="card-img-top" style='width:280px; height:280px;' src="data:image/jpeg;base64,@(Convert.ToBase64String(item.Picture))" />
+                    </a>
+                }*@
+            </div>
+            <div class="card-body">
+                <center><h5 class="card-title">@item.Name</h5></center>
+                <p class="card-text">@item.Description</p>
+            </div>
+
+        </div>
+    }
+</div>
+
+<style>
+    .articleGrid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, 320px);
+        grid-auto-rows: minmax(100px,auto);
+        grid-gap: 50px;
+        justify-items: center;
+    }
+
+    .cell {
+        background-color: yellow;
+        border-radius: 20px 20px;
+    }
+</style>
+@Html.ActionLink("Добавить книгу","Create","Products")
