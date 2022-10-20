@@ -44,8 +44,8 @@ namespace MM.Areas.Identity.Controllers
             return RedirectToAction("Index");
         }
 
-        [HttpGet]
-        public async Task<IActionResult> Edit(Companies companyModel)
+        [HttpPost]
+        public async Task<IActionResult> EditCompany(int companyModel)
         {
 
             return View(companyModel);

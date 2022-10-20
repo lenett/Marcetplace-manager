@@ -1,8 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "2yser2mTs+CnWxztOzZ/N4kREx5Cb8kTh1u8y5eFJ++sNNvxr6Oa82uWvqVditAVdQQN0m3rNny+Ft//jvaLNQ==",
+  "dgSpecHash": "Y+nhgUaKUoBRZs1j86xUZJLdQM4AdFBQfbk9AuIo/aWLr5rgvJ+Qf8Oah0gsIUeE+yVJ0TE8icg/VSd4+Hlc3Q==",
   "success": true,
-  "projectFilePath": "D:\\Projects\\c#\\SOV\\MM\\MM.csproj",
+  "projectFilePath": "D:\\Projects\\c#\\mm\\Marcetplace-manager\\MM\\MM.csproj",
   "expectedPackageFiles": [
     "C:\\Users\\popov\\.nuget\\packages\\humanizer.core\\2.8.26\\humanizer.core.2.8.26.nupkg.sha512",
     "C:\\Users\\popov\\.nuget\\packages\\microsoft.aspnetcore.cryptography.internal\\6.0.3\\microsoft.aspnetcore.cryptography.internal.6.0.3.nupkg.sha512",

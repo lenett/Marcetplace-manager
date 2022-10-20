@@ -19,12 +19,13 @@
             <td>@user.Name</td>
             <td>@user.INN</td>
             <td>
-                <form asp-action="Delete" asp-route-id="@user.Id" method="post">
-                    <a class="btn btn-sm btn-primary" asp-action="Edit" asp-route-id="@user.Id">Изменить</a>
-                    <button type="submit" class="btn btn-sm btn-danger">
-                        Удалить
+                @using (Html.BeginForm("EditCompany", "Profile", FormMethod.Post))
+                {
+                    <input type="hidden" value="@user.Id" name="Id" />
+                    <button type="submit" class="btn btn-sm btn-primary" asp-route-id="@user.Id">
+                        Изменить
                     </button>
-                </form>
+                }
             </td>
         </tr>
     }
